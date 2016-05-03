@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fshader_dirlight.txt</file>
+        <file>vshader_dirlight.txt</file>
+    </qresource>
+</RCC>
