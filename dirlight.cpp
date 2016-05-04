@@ -260,8 +260,7 @@ void MyWindow::keyPressEvent(QKeyEvent *keyEvent)
         case Qt::Key_Q:
             break;
         case Qt::Key_S:
-            worldLight.setW(1.0f-worldLight.w());
-            qDebug() << worldLight.w();
+            worldLight.setW(1.0f-worldLight.w());            
             break;
         case Qt::Key_D:
             break;
