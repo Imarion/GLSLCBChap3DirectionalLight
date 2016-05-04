@@ -59,6 +59,7 @@ private:
 
     Torus  *mTorus;
     QMatrix4x4 ModelMatrixDirLight, ViewMatrix, ProjectionMatrix;
+    QVector4D worldLight; // Light position in world coordinates
 
     //debug
     void printMatrix(const QMatrix4x4& mat);

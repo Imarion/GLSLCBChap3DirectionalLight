@@ -22,6 +22,8 @@ MyWindow::~MyWindow()
 MyWindow::MyWindow()
     : mProgramDirLight(0), currentTimeMs(0), currentTimeS(0)
 {
+    worldLight = QVector4D(1.0f, 0.0f, 0.0f, 0.0f); // by default directional light
+
     setSurfaceType(QWindow::OpenGLSurface);
     setFlags(Qt::Window | Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
 
@@ -168,8 +170,7 @@ void MyWindow::render()
     glEnableVertexAttribArray(1);
 
     mProgramDirLight->bind();
-    {
-        QVector4D worldLight = QVector4D(1.0f, 0.0f, 0.0f, 0.0f);
+    {        
         mProgramDirLight->setUniformValue("Light.Position", ViewMatrix * worldLight );
         mProgramDirLight->setUniformValue("Light.Intensity", 0.8f, 0.8f, 0.8f );
 
@@ -259,6 +260,8 @@ void MyWindow::keyPressEvent(QKeyEvent *keyEvent)
         case Qt::Key_Q:
             break;
         case Qt::Key_S:
+            worldLight.setW(1.0f-worldLight.w());
+            qDebug() << worldLight.w();
             break;
         case Qt::Key_D:
             break;
